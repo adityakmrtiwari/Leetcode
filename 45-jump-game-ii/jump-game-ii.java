@@ -14,6 +14,6 @@ class Solution {
                 steps = maxReach - i;
             }
         }
-        return jumpCount++;
+        return jumpCount;
     }
 }
