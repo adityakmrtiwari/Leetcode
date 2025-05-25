@@ -12,6 +12,9 @@ class Solution {
         for (int i = n - 2; i >= 0; i--) {
             rightMax[i] = Math.max(rightMax[i + 1], height[i]);
         }
+
+        //- Left Max & Right Max Arrays: Store the max height encountered from left and right at each position.
+
         int trappedWater = 0;
         for (int i = 0; i < n; i++) {
             trappedWater += Math.min(leftMax[i], rightMax[i]) - height[i];
