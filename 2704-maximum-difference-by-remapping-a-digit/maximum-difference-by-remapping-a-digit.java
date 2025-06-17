@@ -47,3 +47,4 @@ class Solution {
         return maxNum - minNum;
     }
 }
+//StringBuilder is faster and more memory-efficient than using + in loops because it avoids creating multiple intermediate string objects.
