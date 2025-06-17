@@ -3,6 +3,7 @@ class Solution {
         String s = Integer.toString(num);
         int n = s.length();
 
+        // Find the first digit that is not '9' to replace for max
         char digit1 = ' ';
         for (int i = 0; i < n; i++) {
             if (s.charAt(i) != '9') {
@@ -11,28 +12,38 @@ class Solution {
             }
         }
 
-        String max = "";
+        // Build max number by replacing digit1 with '9'
+        StringBuilder max = new StringBuilder();
         for (int i = 0; i < n; i++) {
             if (s.charAt(i) == digit1) {
-                max += '9';
-            } else
-                max += s.charAt(i);
+                max.append('9');
+            } else {
+                max.append(s.charAt(i));
+            }
         }
-        char digit2 = 0;
+
+        // Find the first digit that is not '0' to replace for min
+        char digit2 = ' ';
         for (int i = 0; i < n; i++) {
             if (s.charAt(i) != '0') {
                 digit2 = s.charAt(i);
                 break;
             }
         }
-        String min = "";
+
+        // Build min number by replacing digit2 with '0'
+        StringBuilder min = new StringBuilder();
         for (int i = 0; i < n; i++) {
             if (s.charAt(i) == digit2) {
-                min += '0';
-            } else
-                min += s.charAt(i);
+                min.append('0');
+            } else {
+                min.append(s.charAt(i));
+            }
         }
-        int minNum = Integer.parseInt(min), maxNum = Integer.parseInt(max);
+
+        int maxNum = Integer.parseInt(max.toString());
+        int minNum = Integer.parseInt(min.toString());
+
         return maxNum - minNum;
     }
 }
