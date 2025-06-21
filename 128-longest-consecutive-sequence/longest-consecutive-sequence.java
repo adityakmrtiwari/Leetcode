@@ -1,9 +1,10 @@
 class Solution {
     public int longestConsecutive(int[] numbers) {
         int totalNumbers = numbers.length;
-        if (totalNumbers == 0) return 0;  // Empty array edge case
+        if (totalNumbers == 0)
+            return 0; // Empty array edge case
 
-        int maxSequenceLength = 1;  // At least one number means min sequence of 1
+        int maxSequenceLength = 1; // At least one number means min sequence of 1
         HashSet<Integer> numberSet = new HashSet<>();
 
         // Add all numbers to the HashSet
