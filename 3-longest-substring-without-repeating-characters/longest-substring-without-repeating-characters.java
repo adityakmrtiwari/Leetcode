@@ -8,11 +8,12 @@ class Solution {
             if (!hs.contains(s.charAt(end))) {
                 hs.add(s.charAt(end));
                 end++;
-                length = Math.max(length, end - start);
+                //length = Math.max(length, end - start);
             } else {
                 hs.remove(s.charAt(start));
                 start++;
             }
+            length = Math.max(length, end - start);
         }
         return length;
     }
