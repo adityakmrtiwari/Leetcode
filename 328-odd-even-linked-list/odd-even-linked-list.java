@@ -15,17 +15,15 @@ class Solution {
         ListNode temp = head;
         ListNode tempA = listA;
         ListNode tempB = listB;
-        int ind = 1;
         while (temp != null) {
-            if (ind % 2 == 1) {
                 tempA.next = new ListNode(temp.val);
                 tempA = tempA.next;
-            } else {
+                temp = temp.next;
+                if (temp != null) {
                 tempB.next = new ListNode(temp.val);
                 tempB = tempB.next;
+                temp = temp.next;
             }
-            temp = temp.next;
-            ind++;
         }
         tempA.next = listB.next;
         return listA.next;
