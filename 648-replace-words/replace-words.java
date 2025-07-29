@@ -10,7 +10,7 @@ class Solution {
                     break;
                 }
             }
-            res.append(p+" ");
+            res.append(p+ " ");
         }
         return res.toString().trim();
     }
