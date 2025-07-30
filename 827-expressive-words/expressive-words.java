@@ -1,5 +1,10 @@
 class Solution {
     public int expressiveWords(String s, String[] words) {
+
+        // Compare groups of characters in s and word using two pointers.
+        // A group in s can match a shorter group in word only if it's 3+ chars.
+        // Count all words that can be stretched to match s using this rule.
+        
         int ct = 0;
         for (String word : words) {
             if (isStretchy(s, word))
