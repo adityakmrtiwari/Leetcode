@@ -7,8 +7,8 @@ class Solution {
         while (j < s.length()) {
             if (!hs.contains(s.charAt(j))) {
                 hs.add(s.charAt(j));
+                len = Math.max(len, j - i+1);
                 j++;
-                len = Math.max(len, j - i);
             } else {
                 hs.remove(s.charAt(i));
                 i++;
