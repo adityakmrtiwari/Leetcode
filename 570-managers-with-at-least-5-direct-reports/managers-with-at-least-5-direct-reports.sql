@@ -3,7 +3,7 @@ Select e.name
 from Employee e 
 join Employee f 
 on e.id=f.managerId
-Group By e.id , e.name
+Group By f.managerId
 Having Count(f.managerId)>=5;
 
 
