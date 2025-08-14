@@ -3,27 +3,35 @@ class Solution {
         int n = s.length();
         if (n < 2)
             return s;
-        int start = 0, end = 0;
+        int start = 0, maxLen = 1;
 
-        for (int i = 0; i < s.length(); i++) {
-            int len1 = expandFromCenter(s, i, i); // Odd length
-            int len2 = expandFromCenter(s, i, i + 1); // Even length
-            int len = Math.max(len1, len2);
+        for (int i = 1; i < n; i++) {
+            int l = i - 1;
+            int r = i;
 
-            if (len > end - start) {
-                start = i - (len - 1) / 2;
-                end = i + len / 2;
+            while (l >= 0 && r < n && s.charAt(l) == s.charAt(r)) {
+                int len = r - l + 1;
+                if (len > maxLen) {
+                    maxLen = len;
+                    start = l;
+                }
+                l--;
+                r++;
+            }
+
+            l = i - 1;
+            r = i + 1;
+
+            while (l >= 0 && r < n && s.charAt(l) == s.charAt(r)) {
+                int len = r - l + 1;
+                if (len > maxLen) {
+                    maxLen = len;
+                    start = l;
+                }
+                l--;
+                r++;
             }
         }
-
-        return s.substring(start, end + 1);
-    }
-
-    private int expandFromCenter(String s, int left, int right) {
-        while (left >= 0 && right < s.length() && s.charAt(left) == s.charAt(right)) {
-            left--;
-            right++;
-        }
-        return right - left - 1; // Length of palindrome
+        return s.substring(start, start + maxLen);
     }
 }
