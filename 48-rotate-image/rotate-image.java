@@ -3,32 +3,23 @@ class Solution {
         int r = matrix.length;
         int c = matrix[0].length;
 
-        int[][] transpose = new int [r][c];
-
-        for(int i=0;i<r;i++){
-            for(int j=0;j<c;j++){
-                transpose[j][i]= matrix[i][j];
+        for (int i = 0; i < r; i++) {
+            for (int j = i + 1; j < r; j++) {
+                int remp = matrix[i][j];
+                matrix[i][j] = matrix[j][i];
+                matrix[j][i] = remp;
             }
         }
 
-        
-
-        for(int i=0;i<c;i++){
-            int x = r-1;
-            for(int j=0;j<r/2;j++){
-                int temp = transpose[i][j];
-                transpose[i][j]= transpose[i][x];
-                transpose[i][x]= temp;
+        for (int i = 0; i < c; i++) {
+            int x = r - 1;
+            for (int j = 0; j < r / 2; j++) {
+                int temp = matrix[i][j];
+                matrix[i][j] = matrix[i][x];
+                matrix[i][x] = temp;
                 x--;
             }
         }
 
-        for(int i=0;i<r;i++){
-            for(int j=0;j<c;j++){
-                matrix[i][j]= transpose[i][j];
-            }
-        }
-
-        
     }
 }
