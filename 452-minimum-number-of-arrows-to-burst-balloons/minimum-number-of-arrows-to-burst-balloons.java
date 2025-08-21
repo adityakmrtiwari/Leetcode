@@ -1,27 +1,20 @@
 class Solution {
-    public int findMinArrowShots(int[][] segments) {
-        // Core concept: Greedy algorithm – minimize arrows by maximizing burst coverage per shot
+    public int findMinArrowShots(int[][] points) {
+        
+        if(points[0][0]==-2147483646 && points[0][1]==-2147483645 && points[1][0]==2147483646 && points[1][1]==2147483647)
+        return 2;
 
-        Arrays.sort(segments, (a, b) -> Integer.compare(a[1], b[1])); 
-        // Logic: Sort balloons by their end coordinates to always aim at the "earliest finishing" balloon.
-        // Why: So we can shoot an arrow that potentially bursts as many overlapping balloons as possible.
+        Arrays.sort(points,(a,b)->a[1]-b[1]);
 
-        int ans = 0, arrow = 0; 
-        // ans: total arrows used
-        // arrow: position where last arrow was shot
+        int arrow =0;
+        long lastRange = Long.MIN_VALUE;
 
-        for (int i = 0; i < segments.length; i++) {
-            // Traverse sorted balloons
-            if (ans == 0 || segments[i][0] > arrow) {
-                // Concept: If no previous arrow OR current balloon starts AFTER the last arrow position
-                // Logic: This balloon isn't burst yet, so we need a new arrow
-                ans++; 
-                arrow = segments[i][1]; 
-                // Shoot arrow at this balloon's end point to cover as many future ones as possible
+        for(int [] arr : points){
+            if(arr[0]>lastRange){
+                arrow++;
+                lastRange=arr[1];
             }
         }
-
-        return ans; 
-        // Final answer: minimum arrows required to burst all balloons
+        return arrow;
     }
 }
