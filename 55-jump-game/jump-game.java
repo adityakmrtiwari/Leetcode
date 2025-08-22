@@ -1,10 +1,12 @@
 class Solution {
     public boolean canJump(int[] nums) {
-        int lastPos = nums.length - 1;
-        for (int ind = nums.length - 2; ind >= 0; ind--) {
-            if (ind + nums[ind] >= lastPos)
-                lastPos = ind;
+        int n = nums.length;
+
+        int f = 0;
+
+        for (int i = 0; i <= f && i < n-1; i++) {
+            f = Math.max(f, i + nums[i]);
         }
-        return lastPos == 0;
+        return f >= n-1;
     }
 }
