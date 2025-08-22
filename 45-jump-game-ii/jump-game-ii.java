@@ -1,19 +1,19 @@
 class Solution {
     public int jump(int[] nums) {
-        if(nums.length<=1) return 0;
-        int maxReach = nums[0];
-        int steps = nums[0];
-        int jumpCount = 1;
-
-        for (int i = 1; i < nums.length - 1; i++) {
-            maxReach = Math.max(maxReach, i + nums[i]);
-            steps--;
-
-            if (steps == 0) {
-                jumpCount++;
-                steps = maxReach - i;
+        int far = 0;
+        int max=0;
+        int ct = 0;
+        for (int i = 0; i < nums.length-1; i++) {
+            for (int j = 1; j <= nums[i]; j++) {
+                if (i + j > far){
+                    far = i + j;
+                }
+            }
+            if(i==max){
+                max=far;
+                ct++;
             }
         }
-        return jumpCount;
+        return ct;
     }
 }
