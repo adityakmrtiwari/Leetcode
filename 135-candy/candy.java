@@ -1,20 +1,25 @@
 class Solution {
     public int candy(int[] ratings) {
-        int n = ratings.length;
-        ArrayList<Integer> candies = new ArrayList<>(Collections.nCopies(n, 1));
+        
+        int[] ans = new int[ratings.length];
+        Arrays.fill(ans, 1);
 
-        for (int i = 1; i < n; i++) {
-            if (ratings[i] > ratings[i-1])
-                candies.set(i,candies.get(i-1) + 1);
+        for (int i = 1; i < ratings.length; i++) {
+            if (ratings[i] > ratings[i - 1]) {
+                ans[i] = ans[i - 1] + 1;
+            }
         }
-        for(int i=n-2;i>=0;i--){
-            if(ratings[i]>ratings[i+1])
-                candies.set(i,Math.max(candies.get(i+1)+1,candies.get(i)));
+
+        for (int i = ratings.length - 2; i >= 0; i--) {
+            if (ratings[i] > ratings[i + 1]) {
+                ans[i] = Math.max(ans[i + 1] + 1, ans[i]);
+            }
         }
-        int totalCandy=0;
-        for(int candy:candies){
-            totalCandy+=candy;
+
+        int ct = 0;
+        for (int i = 0; i < ratings.length; i++) {
+            ct += ans[i];
         }
-        return totalCandy;
+        return ct;
     }
 }
