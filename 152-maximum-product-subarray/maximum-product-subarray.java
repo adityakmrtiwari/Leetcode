@@ -11,9 +11,9 @@ class Solution {
         for(int i=1;i<n;i++){
 
             if(nums[i]<0){
-                int temp = maxP;
-                maxP = minP;
-                minP = temp;
+                maxP = minP+maxP;
+                minP = maxP-minP;
+                maxP=maxP-minP;
             }
 
             maxP = Math.max(maxP*nums[i],nums[i]);
