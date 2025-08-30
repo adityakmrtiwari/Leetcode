@@ -10,22 +10,26 @@
  */
 class Solution {
     public ListNode oddEvenList(ListNode head) {
-        ListNode listA = new ListNode(0);
-        ListNode listB = new ListNode(0);
+
+        ListNode Odd = new ListNode(0);
+        ListNode tempOdd = Odd;
+        ListNode Even = new ListNode(0);
+        ListNode tempEven = Even;
+
         ListNode temp = head;
-        ListNode tempA = listA;
-        ListNode tempB = listB;
-        while (temp != null) {
-                tempA.next = new ListNode(temp.val);
-                tempA = tempA.next;
-                temp = temp.next;
-                if (temp != null) {
-                tempB.next = new ListNode(temp.val);
-                tempB = tempB.next;
-                temp = temp.next;
+
+        while(temp!=null){
+            tempOdd.next=new ListNode(temp.val);
+            tempOdd = tempOdd.next;
+            temp=temp.next;
+
+            if(temp!=null){
+                tempEven.next=new ListNode(temp.val);
+                tempEven = tempEven.next;
+                temp= temp.next;
             }
         }
-        tempA.next = listB.next;
-        return listA.next;
+        tempOdd.next=Even.next;
+        return Odd.next;
     }
 }
