@@ -1,16 +1,19 @@
 class Solution {
     public boolean isPalindrome(String s) {
-        int n = s.length();
-        int l = 0;
-        int r = n - 1;
+        s = s.trim();
+        String st = "";
 
-        while (l < r) {
-            while (l < r && !Character.isLetterOrDigit(s.charAt(l)))
-                l++;
-            while (l < r && !Character.isLetterOrDigit(s.charAt(r)))
-                r--;
+        for (int i = 0; i < s.length(); i++) {
+            if (Character.isLetterOrDigit(s.charAt(i))) {
+                st = st + s.charAt(i);
+            }
+        }
+        st = st.toLowerCase();
 
-            if (Character.toLowerCase(s.charAt(l)) != Character.toLowerCase(s.charAt(r)))
+        int l = 0, r = st.length() - 1;
+
+        while (l <= r) {
+            if (st.charAt(l) != st.charAt(r))
                 return false;
             l++;
             r--;
