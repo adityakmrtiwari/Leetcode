@@ -1,16 +1,15 @@
 class Solution {
     public int majorityElement(int[] nums) {
-        int ct = 0;
-        int majority = 0;
+        int ct = 0, candidate = 0;
         for (int num : nums) {
-            if (ct == 0)
-                majority = num;
-            if (majority == num)
+            if (num == candidate)
                 ct++;
-            else
+            else if (ct == 0) {
+                candidate = num;
+                ct++;
+            } else
                 ct--;
-
         }
-        return majority;
+        return candidate;
     }
 }
