@@ -1,7 +1,7 @@
 class Solution {
     public int singleNumber(int[] nums) {
 
-        // as xor cancels out when same only left the distinct element
+        // as xor cancels out when same , only left the distinct element
         int ans = 0;
         for (int num : nums) {
             ans = ans ^ num;
