@@ -19,7 +19,8 @@ class Solution {
 
         int ct = 0;
         for (boolean prime : isPrime) {
-            if (prime) ct++;
+            if (prime)
+                ct++;
         }
 
         return ct;
