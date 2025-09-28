@@ -22,7 +22,6 @@ class Solution {
             if (prime)
                 ct++;
         }
-
         return ct;
     }
 }
