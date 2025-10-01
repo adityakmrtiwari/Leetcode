@@ -7,8 +7,8 @@ class Solution {
             if (s.charAt(i) == '1') {
                 ct++;
                 ans = (ans + ct) % mod;
-            }else{
-                ct=0;
+            } else {
+                ct = 0;
             }
         }
         return (int) ans;
