@@ -20,6 +20,7 @@ class Solution {
             prev = curr;
             curr = agla;
         }
+
         return prev;
     }
 }
