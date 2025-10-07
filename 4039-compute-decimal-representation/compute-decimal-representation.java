@@ -10,7 +10,6 @@ class Solution {
             temp = temp * 10;
         }
 
-        Collections.sort(list);
         Collections.reverse(list);
 
         int[] arr = new int[list.size()];
