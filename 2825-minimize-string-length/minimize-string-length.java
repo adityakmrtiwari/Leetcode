@@ -1,8 +1,8 @@
 class Solution {
     public int minimizedStringLength(String s) {
         Set<Character> hs = new HashSet<>();
-        for(int i=0;i<s.length();i++){
-            hs.add(s.charAt(i));
+        for (char ch : s.toCharArray()) {
+            hs.add(ch);
         }
         return hs.size();
     }
