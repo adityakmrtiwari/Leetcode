@@ -6,8 +6,8 @@ class Solution {
             if (mp.containsKey(nums[i])) {
                 arr[0] = mp.get(nums[i]);
                 arr[1] = i;
-            }
-            mp.put(target - nums[i], i);
+            } else
+                mp.put(target - nums[i], i);
         }
         return arr;
     }
