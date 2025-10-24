@@ -8,8 +8,6 @@ class Solution {
         while (end >= 0) {
 
             while (end >= 0 && s.charAt(end) == ' ') end--;
-            // if (end < 0)
-            //     break;
 
             start = end;
             while (start >= 0 && s.charAt(start) != ' ') start--;
