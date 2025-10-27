@@ -5,9 +5,9 @@ class Solution {
 
         for (int i = 0; i < r; i++) {
             for (int j = i + 1; j < r; j++) {
-                int remp = matrix[i][j];
+                int temp = matrix[i][j];
                 matrix[i][j] = matrix[j][i];
-                matrix[j][i] = remp;
+                matrix[j][i] = temp;
             }
         }
 
@@ -20,6 +20,5 @@ class Solution {
                 x--;
             }
         }
-
     }
 }
