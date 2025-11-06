@@ -1,29 +1,23 @@
 class Solution {
     public int[] productExceptSelf(int[] nums) {
-        int[] arr = new int[nums.length];
-        int prod = 1;
-        int z = 0;
+        int n = nums.length;
 
-        for (int num : nums) {
-            if (num == 0) {
-                z++;
-                continue;
-            }
-            prod *= num;
+        // product of element nikalne ke liye humlog prod of prefix * prod of suffix  nikalenge
+        // pehle ans me prefix nikal le rhe fir suffix se multiply kar denge
+
+        int[] ans = new int[n];
+
+        ans[0] = 1;
+        for (int i = 1; i < n; i++) {
+            ans[i] = ans[i - 1] * nums[i - 1];
         }
-        for (int i = 0; i < nums.length; i++) {
-            if(z>1){
-                arr[i]=0;
-            }
-            else if (z > 0) {
-                if (nums[i] == 0)
-                    arr[i] = prod;
-                else
-                    arr[i] = 0;
-            }
-             else
-                arr[i] = prod / nums[i];
+
+        int suffix = 1;
+        for (int i = n - 1; i >= 0; i--) {
+            ans[i] = ans[i] * suffix;
+            suffix = suffix * nums[i];
         }
-        return arr;
+        
+        return ans;
     }
 }
