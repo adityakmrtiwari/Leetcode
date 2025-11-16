@@ -1,16 +1,16 @@
 class Solution {
     public int numSub(String s) {
-        long ans = 0;
-        long ct = 0;
-        int mod = 1_000_000_007;
-        for (int i = 0; i < s.length(); i++) {
-            if (s.charAt(i) == '1') {
+        int n = s.length();
+        int mod = 1000000007;
+        int ct =0;
+        int ans =0;
+        for(char ch : s.toCharArray()){
+            if(ch == '1'){
                 ct++;
-                ans = (ans + ct) % mod;
-            } else {
-                ct = 0;
+                ans = (ans+ct)%mod;
             }
+            else ct =0;
         }
-        return (int) ans;
+        return ans;
     }
 }
