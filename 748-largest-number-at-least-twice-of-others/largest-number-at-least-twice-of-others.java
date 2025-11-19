@@ -8,7 +8,7 @@ class Solution {
                 sec = lar;
                 lar = nums[i];
                 ind = i;
-            }else if(nums[i]>sec && nums[i]<lar){
+            }else if(nums[i]>sec){
                 sec = nums[i];
             }
         }
