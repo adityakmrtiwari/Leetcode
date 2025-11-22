@@ -1,5 +1,11 @@
 class Solution {
     public int[] maxSubsequence(int[] nums, int k) {
+
+        // 1. Attach original indices to values.
+        // 2. Sort indices by values descending → find the top k elements.
+        // 3. Sort selected indices ascending → restore original subsequence order.
+        // 4. Output nums at those indices.
+        
         int n = nums.length;
 
         Integer[] indexes = new Integer[n];
