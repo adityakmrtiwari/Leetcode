@@ -1,35 +1,29 @@
 class Solution {
-    public int longestConsecutive(int[] numbers) {
-        int totalNumbers = numbers.length;
-        if (totalNumbers == 0)
-            return 0; // Empty array edge case
+    public int longestConsecutive(int[] nums) {
+        int n = nums.length;
+        if (n == 0)
+            return 0;
 
-        int maxSequenceLength = 1; // At least one number means min sequence of 1
-        HashSet<Integer> numberSet = new HashSet<>();
+        int maxLen = 1;
 
-        // Add all numbers to the HashSet
-        for (int i = 0; i < totalNumbers; i++) {
-            numberSet.add(numbers[i]);
-        }
+        Set<Integer> numSet = new HashSet<>();
 
-        // Check each number in the set
-        for (int currentNumber : numberSet) {
-            // Check if it's the start of a sequence
-            if (!numberSet.contains(currentNumber - 1)) {
-                int currentSequenceLength = 1;
-                int nextNumber = currentNumber + 1;
+        for (int num : nums)
+            numSet.add(num);
 
-                // Count the length of the current consecutive sequence
-                while (numberSet.contains(nextNumber)) {
-                    currentSequenceLength++;
-                    nextNumber++;
+        for (int num : numSet) {
+            if (!numSet.contains(num - 1)) {
+                int len = 1;
+                int nextNum = num + 1;
+
+                while (numSet.contains(nextNum)) {
+                    len++;
+                    nextNum++;
                 }
-
-                // Update the max length found so far
-                maxSequenceLength = Math.max(maxSequenceLength, currentSequenceLength);
+                maxLen = Math.max(maxLen, len);
             }
         }
+        return maxLen;
 
-        return maxSequenceLength;
     }
 }
