@@ -7,9 +7,10 @@ class Solution {
         int ct = 0;
         for (String st : message) {
             if (set.contains(st)) ct++;
+
+            if (ct == 2) return true;
         }
-        if (ct >= 2)
-            return true;
+        
         return false;
     }
 }
