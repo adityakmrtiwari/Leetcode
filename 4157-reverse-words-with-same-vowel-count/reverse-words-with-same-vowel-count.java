@@ -1,7 +1,7 @@
 class Solution {
     public String reverseWords(String s) {
+        
         String words[] = s.split(" ");
-
         int firstVowCt = vowelCt(words[0]);
 
         for (int i = 1; i < words.length; i++) {
